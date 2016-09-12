@@ -90,6 +90,7 @@ public:
         k_param_battery,
         k_param_fs_batt_mah,
         k_param_angle_rate_max,         // 38
+        k_param_rssi_range,             // 39
 
         // 65: AP_Limits Library
         k_param_limits = 65,            // deprecated - remove
@@ -137,7 +138,7 @@ public:
         k_param_gcs1,
         k_param_sysid_this_mav,
         k_param_sysid_my_gcs,
-        k_param_serial1_baud,
+        k_param_serial3_baud,
         k_param_telem_delay,
         k_param_gcs2,
         k_param_serial2_baud,
@@ -283,7 +284,7 @@ public:
     //
     AP_Int16        sysid_this_mav;
     AP_Int16        sysid_my_gcs;
-    AP_Int8         serial1_baud;
+    AP_Int8         serial3_baud;
 #if MAVLINK_COMM_NUM_BUFFERS > 2
     AP_Int8         serial2_baud;
 #endif
@@ -312,6 +313,7 @@ public:
                                                 // lighting system
 
     AP_Int8         rssi_pin;
+    AP_Float        rssi_range;
     AP_Int8         wp_yaw_behavior;            // controls how the autopilot controls yaw during missions
     AP_Int16        angle_max;                  // maximum lean angle of the copter in centi-degrees
     AP_Int32        angle_rate_max;             // maximum rotation rate in roll/pitch axis requested by angle controller used in stabilize, loiter, rtl, auto flight modes

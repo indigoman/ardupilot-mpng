@@ -3,7 +3,7 @@
 #include <AP_HAL.h>
 #include "AP_InertialSensor_MPU6000_I2C.h"
 
-//#define DISABLE_INTERNAL_MAG
+#define DISABLE_INTERNAL_MAG
 
 extern const AP_HAL::HAL& hal;
 
