@@ -36,15 +36,15 @@ extern const HAL& hal;
 #endif
 
 #if RC_MAPPING == RC_MAP_STANDARD
-	static uint8_t pinRcChannel[8] = {0, 1, 2, 3, 4, 5, 6, 7}; // ROLL,PITCH,THROTTLE,YAW,MODE,AUX2,CAMPITCH,CAMROLL
+	static uint8_t pinRcChannel[16] = {0, 1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15}; // ROLL,PITCH,THROTTLE,YAW,MODE,AUX2,CAMPITCH,CAMROLL
 #elif RC_MAPPING == RC_MAP_GRAUPNER
-	static uint8_t pinRcChannel[8] = {1, 3, 2, 0, 4, 5, 6, 7}; // PITCH,YAW,THROTTLE,ROLL,AUX1,AUX2,CAMPITCH,CAMROLL
+	static uint8_t pinRcChannel[16] = {1, 3, 2, 0, 4, 5, 6, 7,8,9,10,11,12,13,14,15}; // PITCH,YAW,THROTTLE,ROLL,AUX1,AUX2,CAMPITCH,CAMROLL
 #elif RC_MAPPING == RC_MAP_HITEC
-	static uint8_t pinRcChannel[8] = {1, 0, 2, 3, 4, 5, 6, 7}; // PITCH,ROLL,THROTTLE,YAW,AUX1,AUX2,CAMPITCH,CAMROLL
+	static uint8_t pinRcChannel[16] = {1, 0, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15}; // PITCH,ROLL,THROTTLE,YAW,AUX1,AUX2,CAMPITCH,CAMROLL
 #elif RC_MAPPING == RC_MAP_MULTIWII
-	static uint8_t pinRcChannel[8] = {1, 2, 0, 3, 4, 5, 6, 7}; // ROLL,THROTTLE,PITCH,YAW,AUX1,AUX2,CAMPITCH,CAMROLL
+	static uint8_t pinRcChannel[16] = {1, 2, 0, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15}; // ROLL,THROTTLE,PITCH,YAW,AUX1,AUX2,CAMPITCH,CAMROLL
 #elif RC_MAPPING == RC_MAP_JR
-	static uint8_t pinRcChannel[8] = {1, 2, 0, 3, 5, 6, 4, 7}; // FLAPS:MODE, GEAR:SAVE TRIMM = apm ch7
+	static uint8_t pinRcChannel[16] = {1, 2, 0, 3, 5, 6, 4, 7,8,9,10,11,12,13,14,15}; // FLAPS:MODE, GEAR:SAVE TRIMM = apm ch7
 #else
 # error Wrong RC_MAPPING
 #endif
@@ -182,7 +182,7 @@ void MPNGRCInput::_ppmsum_A8_isr(void)
 					{
 						_pulse_capt[i] = rcPinValueRAW[i];
 					}
-					_valid_channels = AVR_RC_INPUT_NUM_CHANNELS;
+					_valid_channels = curr_ch_number;
 				}
 				else{
 					_valid_channels = 0;

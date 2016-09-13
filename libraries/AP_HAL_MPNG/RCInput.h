@@ -5,7 +5,7 @@
 #include <AP_HAL.h>
 #include "AP_HAL_MPNG_Namespace.h"
 
-#define AVR_RC_INPUT_NUM_CHANNELS 8
+#define AVR_RC_INPUT_NUM_CHANNELS 16    // 16 = MAXIMUM number of channels
 #define AVR_RC_INPUT_MIN_CHANNELS 5     // for ppm sum we allow less than 8 channels to make up a valid packet
 
 #define SERIAL_PPM_DISABLED 1
