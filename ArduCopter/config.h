@@ -391,6 +391,9 @@
 #ifndef SERIAL2_BAUD
  # define SERIAL2_BAUD                    57600
 #endif
+#ifndef SERIAL3_BAUD
+ # define SERIAL3_BAUD                    19200
+#endif
 
 
 //////////////////////////////////////////////////////////////////////////////
